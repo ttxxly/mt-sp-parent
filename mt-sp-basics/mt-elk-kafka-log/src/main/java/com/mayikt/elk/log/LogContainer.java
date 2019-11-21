@@ -46,7 +46,7 @@ public class LogContainer {
                 /**
                  * 代码的优化
                  * 当前线程批量获取多条日志消息 投递kafka   批量
-                 *
+                 * 测试提交时间
                  */
                 String log = logs.poll();
                 if (!StringUtils.isEmpty(log)) {
