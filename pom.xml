@@ -13,7 +13,6 @@
         <module>mt-sp-service-api/mt-sp-service-api-weixin</module>
         <module>mt-sp-service-impl</module>
         <module>mt-sp-service-api/mt-sp-service-api-member</module>
-        <module>mt-sp-service-api-base</module>
         <module>mt-sp-service-base</module>
     </modules>
 
