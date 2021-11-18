@@ -10,19 +10,27 @@ spring:
       config:
         server-addr: 127.0.0.1:8848
         file-extension: yml
+  redis:
+    host: 127.0.0.1
+    port: 6379
   profiles:
     active: prd
-#  datasource:
-#    password: root
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://localhost:3306/mayikt-member?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-#    username: root
+  datasource:
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mayikt-member?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: root
 
-#logging:
-#  level:
-#    ###打印mybatis日志
-#    com.mayikt.api.impl.mapper : debug
+logging:
+  level:
+    ###打印mybatis日志
+    com.mayikt.api.impl.mapper : debug
 server:
   port: 7000
-#mayikt:
-#  userName: mayikt
+mayikt:
+  userName: mayikt
+  thread:
+    corePoolSize: 10
+    maxPoolSize: 10
+    queueCapacity: 20
+    keepAlive: 60
