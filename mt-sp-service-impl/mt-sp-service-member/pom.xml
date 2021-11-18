@@ -30,6 +30,11 @@
             <scope>compile</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.6.0</version>
+        </dependency>
         <!-- 添加springboot对amqp的支持 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
