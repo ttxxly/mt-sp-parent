@@ -18,6 +18,7 @@
         <module>mt-sp-service-mq/mt-sp-service-member-consumer</module>
         <module>mt-sp-basics</module>
         <module>mt-sp-basics/mt-sp-basics-gateway</module>
+        <module>mt-sp-web</module>
     </modules>
 
     <parent>
