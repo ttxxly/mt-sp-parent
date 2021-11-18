@@ -29,4 +29,3 @@ public class WechatTemplateConsumer {
         log.info("stringBaseResponse:{}", stringBaseResponse);
     }
 }
-

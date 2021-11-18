@@ -44,5 +44,5 @@ public interface MemberService {
     BaseResponse<UserRespDto> updateUserDto(@RequestBody UserReqDto userReqDto);
 
     @RequestMapping("/getTestConfig")
-    String getTestConfig();
+    BaseResponse<String> getTestConfig();
 }

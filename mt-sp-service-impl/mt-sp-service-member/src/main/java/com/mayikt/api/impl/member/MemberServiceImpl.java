@@ -21,11 +21,13 @@ import com.mayikt.api.member.dto.resp.UserRespDto;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
 @RestController
+//@CrossOrigin
 public class MemberServiceImpl extends BaseApiService implements MemberService {
     @Autowired
     private WeChatServiceFeign weChatServiceFeign;
@@ -33,6 +35,7 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
     private UserMapper userMapper;
     @Value("${mayikt.userName}")
     private String userName;
+
     @Override
     public String memberToWeiXin(Integer a) {
         // Feign调用微信服务接口
@@ -69,7 +72,7 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
         // 5.查询db数据
         Integer userId = updateUserDo.getUserId();
         UserDo getDbUserDo = userMapper.selectById(userId);
-        if(getDbUserDo==null){
+        if (getDbUserDo == null) {
             return setResultError("查询数据为空.");
         }
         // UserDo 转化成dto
@@ -78,8 +81,10 @@ public class MemberServiceImpl extends BaseApiService implements MemberService {
     }
 
     @Override
-    public String getTestConfig() {
-        return userName;
+    public BaseResponse<String> getTestConfig() {
+        // Access-Control-Allow-Origin ,*
+        //@CrossOrigin aOP的方式实现拦截所有请求 给每个请求上加上Access-Control-Allow-Origin ,*
+        return setResultSuccess(userName);
     }
 
 

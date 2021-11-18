@@ -35,10 +35,9 @@ public class LoginProducer {
         data.put("loginToken", loginToken);
         data.put("channel", channel);
         data.put("equipment", equipment);
-        //openid phone 微信模板使用
         data.put("openId", wxOpenId);
         data.put("phone", phone);
-        // 使用rabbitmq异步投递消息，可能会出现问题: 1. 消息丢失
+        // 使用rabbitmq投递消息
         amqpTemplate.convertAndSend(RabbitMQConfig.EXCHANGE_MAYIKT_NAME, "", data.toJSONString());
         log.info(">>>会员服务登录后续，投递消息到mq成功.<<<");
     }
