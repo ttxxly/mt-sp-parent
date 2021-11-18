@@ -15,8 +15,10 @@ import com.mayikt.api.impl.entity.UserInfoDo;
 import com.mayikt.api.impl.entity.UserLoginLogDo;
 import com.mayikt.api.impl.manage.UserLoginLogManage;
 import com.mayikt.api.impl.mapper.UserInfoMapper;
+import com.mayikt.api.impl.producer.LoginProducer;
 import com.mayikt.api.member.LoginService;
 import com.mayikt.api.member.dto.req.UserLoginDto;
+import com.mayikt.api.utils.DesensitizationUtil;
 import com.mayikt.api.utils.MD5Util;
 import com.mayikt.api.utils.TokenUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -39,6 +41,8 @@ public class LoginServiceImpl extends BaseApiService<JSONObject> implements Logi
     private TokenUtils tokenUtils;
     @Autowired
     private UserLoginLogManage userLoginLogManage;
+    @Autowired
+    private LoginProducer loginProducer;
 
     /**
      * MD5 需要配置加盐--- 单向加密
@@ -87,9 +91,11 @@ public class LoginServiceImpl extends BaseApiService<JSONObject> implements Logi
         JSONObject data = new JSONObject();
         data.put("userToken", userToken);
         log.info(">>userToken:{}<<", userToken);
-        // 异步单独的线程处理
-        userLoginLogManage.asynLoginLog(new UserLoginLogDo(userId, sourceIp, new Date(), userToken,
-                channel, deviceInfor));
+//        // 异步单独的线程处理
+//        userLoginLogManage.asynLoginLog(new UserLoginLogDo(userId, sourceIp, new Date(), userToken,
+//                channel, deviceInfor));
+        loginProducer.sendMsgLoginFollowUp(userId, sourceIp, new Date(), userToken,
+                channel, deviceInfor, userInfoDo.getWxOpenId(), DesensitizationUtil.mobileEncrypt(mobile));
         return setResultSuccess(data);
     }
 

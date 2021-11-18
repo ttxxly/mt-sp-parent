@@ -1,7 +1,7 @@
 spring:
   application:
     ###服务的名称
-    name: mayikt-member
+    name: mayikt-member-mqconsumer
   cloud:
     nacos:
       discovery:
@@ -15,11 +15,6 @@ spring:
     port: 6379
   profiles:
     active: prd
-  datasource:
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/mayikt-member?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
-    username: root
   rabbitmq:
     ####连接地址
     host: 192.168.163.129
@@ -36,7 +31,7 @@ logging:
     ###打印mybatis日志
     com.mayikt.api.impl.mapper : debug
 server:
-  port: 7000
+  port: 10000
 mayikt:
   userName: mayikt
   thread:
