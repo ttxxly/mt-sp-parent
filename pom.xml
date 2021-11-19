@@ -19,6 +19,7 @@
         <module>mt-sp-basics</module>
         <module>mt-sp-basics/mt-sp-basics-gateway</module>
         <module>mt-sp-web</module>
+        <module>mt-sp-service-impl/mt-sp-service-pay</module>
     </modules>
 
     <parent>

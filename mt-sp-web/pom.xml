@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mt-sp-member-web</module>
+        <module>mt-sp-pays-web</module>
     </modules>
 
 

@@ -20,6 +20,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collections;
+import java.util.List;
+
 @RestController
 public class UserInfoServiceImpl extends BaseApiService<UserInfoDto> implements UserInfoService {
     @Autowired
@@ -46,5 +49,29 @@ public class UserInfoServiceImpl extends BaseApiService<UserInfoDto> implements 
         UserInfoDto userInfoDto = doToDto(userInfoDo, UserInfoDto.class);
         userInfoDto.setMobile(DesensitizationUtil.mobileEncrypt(userInfoDto.getMobile()));
         return setResultSuccess(userInfoDto);
+    }
+
+    @Override
+    public BaseResponse<UserInfoDto> testSubtableUser(Long userId) {
+        UserInfoDo userInfoDo = userInfoMapper.selectById(userId);
+        UserInfoDto userInfoDto = doToDto(userInfoDo, UserInfoDto.class);
+        return setResultSuccess(userInfoDto);
+    }
+
+    @Override
+    public List<Object> selectByUserInfo() {
+        QueryWrapper<UserInfoDo> userInfoDoQueryWrapper = new QueryWrapper<>();
+//        userInfoDoQueryWrapper.eq("")
+        List<UserInfoDo> userInfoDos = userInfoMapper.selectList(userInfoDoQueryWrapper);
+        return Collections.singletonList(userInfoDos);
+    }
+
+    @Override
+    public String insertUser() {
+        for (int i = 0; i < 10; i++) {
+            UserInfoDo mayikt = new UserInfoDo("1111111111" + i, "112", "mayikt");
+            userInfoMapper.insert(mayikt);
+        }
+        return "ok";
     }
 }

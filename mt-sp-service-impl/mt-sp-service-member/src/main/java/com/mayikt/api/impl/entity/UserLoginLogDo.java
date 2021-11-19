@@ -19,7 +19,9 @@ public class UserLoginLogDo {
     private String loginToken;
     private String channel;
     private String equipment;
+    public UserLoginLogDo(){
 
+    }
     public UserLoginLogDo(Long userId, String loginIp, Date loginTime, String loginToken, String channel, String equipment) {
         this.userId = userId;
         this.loginIp = loginIp;

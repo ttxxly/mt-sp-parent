@@ -74,4 +74,10 @@ public class UserInfoDo {
     // 默认的情况下 查询 is_Delete=0
     @TableLogic
     private int isDelete;
+
+    public UserInfoDo(String mobile, String password, String userName) {
+        this.mobile = mobile;
+        this.password = password;
+        this.userName = userName;
+    }
 }
