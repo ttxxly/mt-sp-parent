@@ -3,17 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>mt-sp-parent</artifactId>
+        <artifactId>mt-sp-service-api</artifactId>
         <groupId>com.mayikt</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>mt-sp-service-mq</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>mt-sp-service-integral-consumer</module>
-    </modules>
+    <artifactId>mt-sp-service-api-pay</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>com.mayikt</groupId>
+            <artifactId>mt-sp-service-base</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 
 </project>
