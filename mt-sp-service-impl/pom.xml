@@ -13,8 +13,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>mt-sp-service-weixin</module>
-        <module>mt-sp-service-pay</module>
         <module>mt-sp-service-member</module>
+        <module>mt-sp-service-integral</module>
     </modules>
 
     <dependencies>

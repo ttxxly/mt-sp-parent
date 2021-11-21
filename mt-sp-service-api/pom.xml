@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mt-sp-service-api-pay</module>
+        <module>mt-sp-service-api-integral</module>
     </modules>
 
 
